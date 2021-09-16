@@ -1,67 +1,102 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(jomshedAli());
+  runApp(Shihab());
 }
-class jomshedAli extends StatelessWidget {
+
+class Shihab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: true,
-      home: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.green,
-            actions: [
-              Icon(Icons.access_time_filled),
-              Icon(Icons.access_time_filled)
-            ],
-            leading: Icon(Icons.account_balance_outlined),
-            centerTitle: true,
-            title: Text('Batch -04'),
-          ),
-          body: SafeArea(
-            child: Center(
-              child: Padding(
-                padding: const EdgeInsets.all(18.0),
-                child: Container(
-                  height: 300,
-                  width: double.infinity,
-                  color: Colors.brown,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 20,right: 30),
-                    child: Text(
-                      "Bangladesh, to the east of India on the Bay of ",
-                      style: TextStyle(
-                          fontSize: 24,
-                          color: Colors.deepOrangeAccent,
-                          backgroundColor: Colors.amberAccent,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
+      home:Firstpage()
+      //Secondpage()
+    );
+  }
+}
+
+class Firstpage extends StatelessWidget {
+  const Firstpage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return
+      Scaffold(
+      appBar: AppBar(
+        title: Text("Batch -4"),
+      ),
+      body: SafeArea(
+          child: ListView(
+            children: [
+              Container(
+                  height: 200,
+                  color: Colors.green,
+                  child: ListView(
+                    children: [
+                      Text("cdvdvd",style: TextStyle(fontSize: 32),),
+                      Text("cdvdvd",style: TextStyle(fontSize: 32))
+                    ],
+                  )),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(height: 200,
+                    color: Colors.red,child: Text("cdvdvd",style: TextStyle(fontSize: 32))),
+              ),
+              Align(
+                alignment: Alignment.bottomRight,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                      height: 100,
+                      width: 200,
+                      color: Colors.amber,
+                      child: ListView(
+                        children: [
+                          Container(
+                            color: Colors.purple,
+                            child: Text("cdvdvd",textAlign: TextAlign.right,style: TextStyle(fontSize: 32)),
+                          ),
+                          Container(
+                            height: 24,
+                            color: Colors.brown,
+                            child: Text(""),
+                          ),
+                          Container(
+                            color: Colors.deepPurple,
+                            child: Text("cdvdvd",textAlign: TextAlign.right,style: TextStyle(fontSize: 32)),
+                          ),
+                        ],
+                      )),
                 ),
               ),
-            )
 
-           /* Text(
-              "Bangladesh, to the east of India on the Bay of "
-                  "Bengal, is a South Asian country marked by "
-                  "lush greenery and many waterways. Its "
-                  "Padma (Ganges), Meghna and Jamuna rivers "
-                  "create fertile plains, and travel by boat "
-                  "is common. On the southern coast, the "
-                  "Sundarbans, an enormous mangrove forest "
-                  "shared with Eastern India, is home to the "
-                  "royal Bengal tiger.",
-              style: TextStyle(
-                  fontSize: 24,
-                  color: Colors.deepOrangeAccent,
-                  backgroundColor: Colors.amberAccent,
-                  fontWeight: FontWeight.bold),
-            ),*/
+              ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
+                  ),
+                  onPressed: (){
+
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> Secondpage()));
+
+                  }, child: Text("Button push",
+                )),
+              TextButton(onPressed: (){}, child: Text("text Button")),
+              OutlinedButton(onPressed: (){}, child: Text("text Button"))
+
+            ],
           )
       ),
     );
   }
 }
 
+
+class Secondpage extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(child: Text("Second Page", style: TextStyle(fontSize: 32),)),
+    );
+  }
+}
 
