@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ict_flutter_development_batch4">
-   <application
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
         android:label="ict_flutter_development_batch4"
         android:icon="@mipmap/ic_launcher">
         <activity
