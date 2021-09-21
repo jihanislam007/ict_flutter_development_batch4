@@ -12,6 +12,9 @@ class Firstpage extends StatelessWidget {
     return
       Scaffold(
         appBar: AppBar(
+          leading: CircleAvatar(
+            backgroundImage: AssetImage("images/android.png"),
+          ),
           title: Text("Batch -4"),
         ),
         body: SafeArea(
