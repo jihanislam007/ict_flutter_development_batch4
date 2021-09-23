@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ict_flutter_development_batch4/OfflineImageLoad.dart';
 import 'package:ict_flutter_development_batch4/OnlineImageLoading.dart';
+import 'package:ict_flutter_development_batch4/RowColumn.dart';
 
 import 'Secondpage.dart';
 
@@ -85,6 +86,17 @@ class Firstpage extends StatelessWidget {
 
                     }, child: Text("Button push",
                 )),
+
+            ElevatedButton(
+        style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
+      ),
+    onPressed: (){
+
+    Navigator.push(context, MaterialPageRoute(builder: (context)=> RowColumn()));
+
+    }, child: Text("Row Column",
+    )),
 
                 ElevatedButton(
         style: ButtonStyle(
