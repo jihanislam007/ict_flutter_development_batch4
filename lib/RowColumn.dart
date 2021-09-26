@@ -15,226 +15,245 @@ class RowColumn extends StatelessWidget {
         title: Text("Row Column"),
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          //padding: EdgeInsets.all(20.0),
-          physics:const BouncingScrollPhysics(
-              parent: AlwaysScrollableScrollPhysics()),
-          child: Column(
-            children: [
+        child: Column(
+          children: [
 
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
+            Container(
+              width: double.infinity,
+              height: MediaQuery.of(context).size.height/8,
+              color: Colors.black26,
 
-                    Container(
-                      height: hight1/2,
-                      width: width1/2,
-                      color: Colors.deepOrange,
-                    ),
-                    SizedBox(width: 10,),
-                    Container(
-                      height: 100,
-                      width: 100,
-                      color: Colors.deepOrange,
-                    ),
+            ),
 
+            SizedBox(height: MediaQuery.of(context).size.height/20,),
 
-                  ],
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+
+                Container(
+                  width: MediaQuery.of(context).size.width/4,
+                  height: MediaQuery.of(context).size.height/8,
+                  //color: Colors.red,
+                  decoration: BoxDecoration(
+                    //borderRadius: BorderRadius.circular(190),
+                    color: Colors.amber,
+                    shape: BoxShape.circle,
+                    border: Border.all(width: 2.0,color: Colors.red)
+                  ),
+                  child: TextButton(child: Center(child: Text("1")),onPressed: (){print("pressed....");},)
                 ),
-              ),
-
-              SizedBox(height: 10,),
-
-              Container(
-                height: 100,
-                width: width1/2,
-                color: Colors.deepPurple,
-              ),
-
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-
-                    Container(
-                      height: 100,
-                      width: 200,
-                      color: Colors.deepOrange,
-                    ),
-                    SizedBox(width: 10,),
-                    Container(
-                      height: 100,
-                      width: 200,
-                      color: Colors.deepOrange,
-                    ),
-                    SizedBox(width: 10,),
-                    Container(
-                      height: 100,
-                      width: 200,
-                      color: Colors.deepOrange,
-                    ),
-
-
-                  ],
+                Container(
+                  width: MediaQuery.of(context).size.width/4,
+                  height: MediaQuery.of(context).size.height/8,
+                  //color: Colors.red,
+                  decoration: BoxDecoration(
+                    //borderRadius: BorderRadius.circular(190),
+                      color: Colors.amber,
+                      shape: BoxShape.circle,
+                      border: Border.all(width: 2.0,color: Colors.red)
+                  ),
+                  child: Center(child: Text("1",style: TextStyle(fontSize: 24,color: Colors.white,fontWeight: FontWeight.bold),)),
                 ),
-              ),
-
-              Row(
-                children: [
-
-                  Container(
-                    height: 100,
-                    width: 200,
-                    color: Colors.deepOrange,
+                Container(
+                  width: MediaQuery.of(context).size.width/4,
+                  height: MediaQuery.of(context).size.height/8,
+                  //color: Colors.red,
+                  decoration: BoxDecoration(
+                    //borderRadius: BorderRadius.circular(190),
+                      color: Colors.amber,
+                      shape: BoxShape.circle,
+                      border: Border.all(width: 2.0,color: Colors.red)
                   ),
-                  SizedBox(width: 10,),
-                  Container(
-                    height: 100,
-                    width: 200,
-                    color: Colors.deepOrange,
+                  child: Center(child: Text("1",style: TextStyle(fontSize: 24,color: Colors.white,fontWeight: FontWeight.bold),)),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width/4,
+                  height: MediaQuery.of(context).size.height/8,
+                  //color: Colors.red,
+                  decoration: BoxDecoration(
+                    //borderRadius: BorderRadius.circular(190),
+                      color: Colors.amber,
+                      shape: BoxShape.circle,
+                      border: Border.all(width: 2.0,color: Colors.red)
                   ),
+                  child: Center(child: Text("1",style: TextStyle(fontSize: 24,color: Colors.white,fontWeight: FontWeight.bold),)),
+                ),
 
+              ],
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height/20,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
 
-                ],
-              ),
-
-              SizedBox(height: 10,),
-
-              Container(
-                height: 100,
-                width: double.infinity,
-                color: Colors.deepPurple,
-              ),
-
-              Row(
-                children: [
-
-                  Container(
-                    height: 100,
-                    width: 200,
-                    color: Colors.deepOrange,
+                Container(
+                  width: MediaQuery.of(context).size.width/4,
+                  height: MediaQuery.of(context).size.height/8,
+                  //color: Colors.red,
+                  decoration: BoxDecoration(
+                    //borderRadius: BorderRadius.circular(190),
+                      color: Colors.amber,
+                      shape: BoxShape.circle,
+                      border: Border.all(width: 2.0,color: Colors.red)
                   ),
-                  SizedBox(width: 10,),
-                  Container(
-                    height: 100,
-                    width: 200,
-                    color: Colors.deepOrange,
-                  ),SizedBox(width: 10,),
-                  Container(
-                    height: 100,
-                    width: 200,
-                    color: Colors.deepOrange,
+                  child: Center(child: Text("1",style: TextStyle(fontSize: 24,color: Colors.white,fontWeight: FontWeight.bold),)),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width/4,
+                  height: MediaQuery.of(context).size.height/8,
+                  //color: Colors.red,
+                  decoration: BoxDecoration(
+                    //borderRadius: BorderRadius.circular(190),
+                      color: Colors.amber,
+                      shape: BoxShape.circle,
+                      border: Border.all(width: 2.0,color: Colors.red)
                   ),
-
-
-                ],
-              ),
-
-              Row(
-                children: [
-
-                  Container(
-                    height: 100,
-                    width: 200,
-                    color: Colors.deepOrange,
+                  child: Center(child: Text("1",style: TextStyle(fontSize: 24,color: Colors.white,fontWeight: FontWeight.bold),)),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width/4,
+                  height: MediaQuery.of(context).size.height/8,
+                  //color: Colors.red,
+                  decoration: BoxDecoration(
+                    //borderRadius: BorderRadius.circular(190),
+                      color: Colors.amber,
+                      shape: BoxShape.circle,
+                      border: Border.all(width: 2.0,color: Colors.red)
                   ),
-                  SizedBox(width: 10,),
-                  Container(
-                    height: 100,
-                    width: 200,
-                    color: Colors.deepOrange,
+                  child: Center(child: Text("1",style: TextStyle(fontSize: 24,color: Colors.white,fontWeight: FontWeight.bold),)),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width/4,
+                  height: MediaQuery.of(context).size.height/8,
+                  //color: Colors.red,
+                  decoration: BoxDecoration(
+                    //borderRadius: BorderRadius.circular(190),
+                      color: Colors.amber,
+                      shape: BoxShape.circle,
+                      border: Border.all(width: 2.0,color: Colors.red)
                   ),
+                  child: Center(child: Text("1",style: TextStyle(fontSize: 24,color: Colors.white,fontWeight: FontWeight.bold),)),
+                ),
 
+              ],
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height/20,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
 
-                ],
-              ),
-
-              SizedBox(height: 10,),
-
-              Container(
-                height: 100,
-                width: double.infinity,
-                color: Colors.deepPurple,
-              ),
-
-              Row(
-                children: [
-
-                  Container(
-                    height: 100,
-                    width: 200,
-                    color: Colors.deepOrange,
+                Container(
+                  width: MediaQuery.of(context).size.width/4,
+                  height: MediaQuery.of(context).size.height/8,
+                  //color: Colors.red,
+                  decoration: BoxDecoration(
+                    //borderRadius: BorderRadius.circular(190),
+                      color: Colors.amber,
+                      shape: BoxShape.circle,
+                      border: Border.all(width: 2.0,color: Colors.red)
                   ),
-                  SizedBox(width: 10,),
-                  Container(
-                    height: 100,
-                    width: 200,
-                    color: Colors.deepOrange,
-                  ),SizedBox(width: 10,),
-                  Container(
-                    height: 100,
-                    width: 200,
-                    color: Colors.deepOrange,
+                  child: Center(child: Text("1",style: TextStyle(fontSize: 24,color: Colors.white,fontWeight: FontWeight.bold),)),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width/4,
+                  height: MediaQuery.of(context).size.height/8,
+                  //color: Colors.red,
+                  decoration: BoxDecoration(
+                    //borderRadius: BorderRadius.circular(190),
+                      color: Colors.amber,
+                      shape: BoxShape.circle,
+                      border: Border.all(width: 2.0,color: Colors.red)
                   ),
-
-
-                ],
-              ),
-
-              Row(
-                children: [
-
-                  Container(
-                    height: 100,
-                    width: 200,
-                    color: Colors.deepOrange,
+                  child: Center(child: Text("1",style: TextStyle(fontSize: 24,color: Colors.white,fontWeight: FontWeight.bold),)),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width/4,
+                  height: MediaQuery.of(context).size.height/8,
+                  //color: Colors.red,
+                  decoration: BoxDecoration(
+                    //borderRadius: BorderRadius.circular(190),
+                      color: Colors.amber,
+                      shape: BoxShape.circle,
+                      border: Border.all(width: 2.0,color: Colors.red)
                   ),
-                  SizedBox(width: 10,),
-                  Container(
-                    height: 100,
-                    width: 200,
-                    color: Colors.deepOrange,
+                  child: Center(child: Text("1",style: TextStyle(fontSize: 24,color: Colors.white,fontWeight: FontWeight.bold),)),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width/4,
+                  height: MediaQuery.of(context).size.height/8,
+                  //color: Colors.red,
+                  decoration: BoxDecoration(
+                    //borderRadius: BorderRadius.circular(190),
+                      color: Colors.amber,
+                      shape: BoxShape.circle,
+                      border: Border.all(width: 2.0,color: Colors.red)
                   ),
+                  child: Center(child: Text("1",style: TextStyle(fontSize: 24,color: Colors.white,fontWeight: FontWeight.bold),)),
+                ),
 
+              ],
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height/20,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
 
-                ],
-              ),
-
-              SizedBox(height: 10,),
-
-              Container(
-                height: 100,
-                width: double.infinity,
-                color: Colors.deepPurple,
-              ),
-
-              Row(
-                children: [
-
-                  Container(
-                    height: 100,
-                    width: 200,
-                    color: Colors.deepOrange,
+                Container(
+                  width: MediaQuery.of(context).size.width/4,
+                  height: MediaQuery.of(context).size.height/8,
+                  //color: Colors.red,
+                  decoration: BoxDecoration(
+                    //borderRadius: BorderRadius.circular(190),
+                      color: Colors.amber,
+                      shape: BoxShape.circle,
+                      border: Border.all(width: 2.0,color: Colors.red)
                   ),
-                  SizedBox(width: 10,),
-                  Container(
-                    height: 100,
-                    width: 200,
-                    color: Colors.deepOrange,
-                  ),SizedBox(width: 10,),
-                  Container(
-                    height: 100,
-                    width: 200,
-                    color: Colors.deepOrange,
+                  child: Center(child: Text("1",style: TextStyle(fontSize: 24,color: Colors.white,fontWeight: FontWeight.bold),)),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width/4,
+                  height: MediaQuery.of(context).size.height/8,
+                  //color: Colors.red,
+                  decoration: BoxDecoration(
+                    //borderRadius: BorderRadius.circular(190),
+                      color: Colors.amber,
+                      shape: BoxShape.circle,
+                      border: Border.all(width: 2.0,color: Colors.red)
                   ),
+                  child: Center(child: Text("1",style: TextStyle(fontSize: 24,color: Colors.white,fontWeight: FontWeight.bold),)),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width/4,
+                  height: MediaQuery.of(context).size.height/8,
+                  //color: Colors.red,
+                  decoration: BoxDecoration(
+                    //borderRadius: BorderRadius.circular(190),
+                      color: Colors.amber,
+                      shape: BoxShape.circle,
+                      border: Border.all(width: 2.0,color: Colors.red)
+                  ),
+                  child: Center(child: Text("1",style: TextStyle(fontSize: 24,color: Colors.white,fontWeight: FontWeight.bold),)),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width/4,
+                  height: MediaQuery.of(context).size.height/8,
+                  //color: Colors.red,
+                  decoration: BoxDecoration(
+                    //borderRadius: BorderRadius.circular(190),
+                      color: Colors.amber,
+                      shape: BoxShape.circle,
+                      border: Border.all(width: 2.0,color: Colors.red)
+                  ),
+                  child: Center(child: Text("1",style: TextStyle(fontSize: 24,color: Colors.white,fontWeight: FontWeight.bold),)),
+                ),
 
+              ],
+            )
 
-                ],
-              ),
-            ],
-          ),
-        ),
+          ],
+        )
+        ,
       ),
     );
   }
