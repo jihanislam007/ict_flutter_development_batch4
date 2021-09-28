@@ -7,6 +7,7 @@ import 'package:liquid_swipe/liquid_swipe.dart';
 
 import 'LiquidSwipss.dart';
 import 'Secondpage.dart';
+import 'Stacks.dart';
 
 class Firstpage extends StatelessWidget {
   const Firstpage({Key? key}) : super(key: key);
@@ -103,10 +104,10 @@ class Firstpage extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => RowColumn()));
+                    MaterialPageRoute(builder: (context) => Stacks()));
               },
               child: Text(
-                "Row Column",
+                "Stack ",
               )),
           ElevatedButton(
               style: ButtonStyle(
