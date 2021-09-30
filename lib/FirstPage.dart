@@ -5,6 +5,8 @@ import 'package:ict_flutter_development_batch4/OnlineImageLoading.dart';
 import 'package:ict_flutter_development_batch4/RowColumn.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 
+import 'Cards.dart';
+import 'Expandeds.dart';
 import 'LiquidSwipss.dart';
 import 'Secondpage.dart';
 import 'Stacks.dart';
@@ -145,6 +147,34 @@ class Firstpage extends StatelessWidget {
               },
               child: Text(
                 "List Tile",
+              )),
+
+          ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
+              ),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Expandeds()));
+              },
+              child: Text(
+                "Expanded",
+              )),
+
+          ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
+              ),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Cards()));
+              },
+              child: Text(
+                "Card",
               )),
         ],
       )),
