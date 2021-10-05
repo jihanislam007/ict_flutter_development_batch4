@@ -7,6 +7,8 @@ import 'package:liquid_swipe/liquid_swipe.dart';
 
 import 'Cards.dart';
 import 'Expandeds.dart';
+import 'Flexibles.dart';
+import 'Gridviews.dart';
 import 'LiquidSwipss.dart';
 import 'Secondpage.dart';
 import 'Stacks.dart';
@@ -27,7 +29,7 @@ class Firstpage extends StatelessWidget {
           child: ListView(
         children: [
           Container(
-              height: 200,
+              height: 50,
               color: Colors.green,
               child: ListView(
                 children: [
@@ -41,7 +43,7 @@ class Firstpage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-                height: 200,
+                height: 50,
                 color: Colors.red,
                 child: Text("cdvdvd", style: TextStyle(fontSize: 32))),
           ),
@@ -87,8 +89,13 @@ class Firstpage extends StatelessWidget {
               child: Text(
                 "Button push",
               )),
-          TextButton(onPressed: () {}, child: Text("text Button")),
-          OutlinedButton(onPressed: () {}, child: Text("text Button")),
+          TextButton(onPressed: () {
+
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Gridviews()));
+          }, child: Text("Grid View")),
+          OutlinedButton(onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => flexibles()));
+          }, child: Text("Flexible")),
           ElevatedButton(
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(Colors.amber),
@@ -98,7 +105,7 @@ class Firstpage extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => OnlineImageLoad()));
               },
               child: Text(
-                "Button push",
+                "OnlineImage Load",
               )),
           ElevatedButton(
               style: ButtonStyle(
