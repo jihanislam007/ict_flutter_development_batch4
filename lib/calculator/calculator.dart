@@ -11,10 +11,10 @@ class Calculator extends StatefulWidget {
 class _CalculatorState extends State<Calculator> {
   late double firstnum, secondnum;
 
-  late String Display='', history='', res, operation;
+  late String Display = '', history = '', res, operation;
 
   void btnOnclick(String btnValue) {
-    print(btnValue);
+    // print(btnValue);
 
     if (btnValue == 'AC') {
       firstnum = 0;
@@ -34,29 +34,26 @@ class _CalculatorState extends State<Calculator> {
       firstnum = double.parse(Display);
       res = '';
       operation = btnValue;
-      history= Display;
-    }else if(btnValue=="="){
-
+      history = Display;
+    } else if (btnValue == "=") {
       secondnum = double.parse(Display);
 
-      if(operation== '+'){
-        res = (firstnum+secondnum).toString();
-      }else if(operation== '-'){
-        res = (firstnum-secondnum).toString();
-      }else if(operation== 'x'){
-        res = (firstnum*secondnum).toString();
-      }else if(operation== '/'){
-        res = (firstnum/secondnum).toString();
+      if (operation == '+') {
+        res = (firstnum + secondnum).toString();
+      } else if (operation == '-') {
+        res = (firstnum - secondnum).toString();
+      } else if (operation == 'x') {
+        res = (firstnum * secondnum).toString();
+      } else if (operation == '/') {
+        res = (firstnum / secondnum).toString();
       }
-
-    }else{
-      res = (Display+ btnValue).toString();
+    } else {
+      res = (Display + btnValue).toString();
     }
 
     setState(() {
       Display = res;
     });
-
   }
 
   @override
