@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ict_flutter_development_batch4/FirstPage.dart';
 
+import 'Auth/signIn.dart';
 import 'RailSeba/rail.dart';
 
 class Splash extends StatefulWidget {
@@ -16,10 +17,10 @@ class _SplashState extends State<Splash> {
   bool value = false;
   @override
   void initState() {
-    Timer(Duration(seconds: 100), (){
+    Timer(Duration(seconds: 10), (){
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => Firstpage()),
+        MaterialPageRoute(builder: (context) => signIn()),
       );
     });
   }
