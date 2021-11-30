@@ -2,6 +2,7 @@ import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ict_flutter_development_batch4/Auth/signup.dart';
 import 'package:ict_flutter_development_batch4/FirstPage.dart';
 
 class signIn extends StatelessWidget {
@@ -101,7 +102,9 @@ class signIn extends StatelessWidget {
                 height: 24,
               ),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => signup()));
+                  },
                   child: Text('''Haven't Account? Sign up''',
                       style: GoogleFonts.rubik(
                           textStyle: TextStyle(
