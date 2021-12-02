@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class signup extends StatefulWidget {
   const signup({Key? key}) : super(key: key);
@@ -11,17 +13,7 @@ class _signupState extends State<signup> {
   int _valueradio = 0;
   DateTime? _dateTime;
 
-  getDate() async{
-    DateTime? date = await showDatePicker(
-        context: context,
-        initialDate: DateTime(DateTime.now().year),
-        firstDate: DateTime(DateTime.now().year-20),
-        lastDate: DateTime(DateTime.now().year+2)
-    );
-    setState(() {
-      _dateTime = date!;
-    });
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -63,13 +55,17 @@ class _signupState extends State<signup> {
                 height: 50,
                 decoration: BoxDecoration(
                     border: Border.all(width: 1, color: Color(0xFF8F8989))),
-                child: Row(
+                child:
+                /*Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(12.0),
-                      child: Flexible(
-                          child:_dateTime == null? Text('dd-mm-yyyy'): Text('Date : ${_dateTime!.day}-${_dateTime!.month}-${_dateTime!.year}')),
+                      child: Container(
+                        height: 50,
+                        child: Flexible(
+                            child:_dateTime == null? TextField(): Text('Date : ${_dateTime!.day}-${_dateTime!.month}-${_dateTime!.year}')),
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(right: 12),
@@ -83,12 +79,143 @@ class _signupState extends State<signup> {
                           )),
                     ),
                   ],
+                ),*/
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          getDate();
+                        },
+                        icon: Icon(Icons.date_range)),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 12),
+                      child: Container(
+                          height: 50,
+                          width: 280,
+                          /*decoration: BoxDecoration(
+                              border:
+                              Border.all(width: 1, color: Color(0xFF9C9191))
+                          ),*/
+                          child: Center(
+                              child: _dateTime == null
+                                  ? Text('Date : DD-MM-YYYY')
+                                  : Text(
+                                  'Date : ${_dateTime!.day}-${_dateTime!.month}-${_dateTime!.year}'))),
+                    ),
+                  ],
                 ),
               ),
-            )
+            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Row(
+                  children: [
+                    Radio(
+                      activeColor: Colors.pink,
+                        value: 1,
+                        groupValue: _valueradio,
+                        onChanged: (value){
+                          setState(() {
+                            _valueradio = value as int;
+                          });
+                        }
+                    ),
+                    Text('Male')
+                  ],
+                ),
+                Row(
+                  children: [
+                    Radio(
+                        activeColor: Colors.pink,
+                        value: 2,
+                        groupValue: _valueradio,
+                        onChanged: (value){
+                          setState(() {
+                            _valueradio = value as int;
+                          });
+                        }
+                    ),
+                    Text('FeMale')
+                  ],
+                ),
+                Row(
+                  children: [
+                    Radio(
+                        activeColor: Colors.pink,
+                        value: 3,
+                        groupValue: _valueradio,
+                        onChanged: (value){
+                          setState(() {
+                            _valueradio = value as int;
+                          });
+                        }
+                    ),
+                    Text('Other')
+                  ],
+                )
+              ],
+            ),
+
+            Container(
+              height: 50,
+              width: 200,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Color(0xFFF10909)),
+              child: TextButton(
+                onPressed: () {
+                  /*Fluttertoast.showToast(
+                        msg: userController.text +'\n'+ PassController.text, toastLength: Toast.LENGTH_LONG,gravity: ToastGravity.SNACKBAR);*/
+
+                  gender();
+                    /*Fluttertoast.showToast(
+                        msg: _valueradio.toString(), toastLength: Toast.LENGTH_LONG,gravity: ToastGravity.SNACKBAR);
+*/
+
+                },
+                child: Text('Submit',
+                    style: GoogleFonts.rubik(
+                        textStyle: TextStyle(
+                            color: Color(
+                              0xFFFFFFFF,
+                            ),
+                            fontSize: 24))),
+              ),
+            ),
+
           ],
         ),
       ),
     );
   }
+
+  getDate() async{
+    DateTime? date = await showDatePicker(
+        context: context,
+        initialDate: DateTime(DateTime.now().year),
+        firstDate: DateTime(DateTime.now().year-20),
+        lastDate: DateTime(DateTime.now().year+2)
+    );
+    setState(() {
+      _dateTime = date!;
+    });
+  }
+
+  gender(){
+    if(_valueradio==1){
+      Fluttertoast.showToast(msg: 'Male',toastLength: Toast.LENGTH_LONG);
+    }else if(_valueradio==2){
+      Fluttertoast.showToast(msg: 'FeMale',toastLength: Toast.LENGTH_LONG);
+    }else if(_valueradio==3){
+      Fluttertoast.showToast(msg: 'other',toastLength: Toast.LENGTH_LONG);
+    }else{
+      Fluttertoast.showToast(msg: 'Please Select your gender',toastLength: Toast.LENGTH_LONG);
+
+    }
+  }
+
 }
