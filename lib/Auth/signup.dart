@@ -13,6 +13,9 @@ class _signupState extends State<signup> {
   int _valueradio = 0;
   DateTime? _dateTime;
 
+  List<String> _country = ['Arob Amirat','Bangladesh','canada', 'Barmuda','Dubai'];
+  String? SelectCountry;
+
 
 
   @override
@@ -161,6 +164,44 @@ class _signupState extends State<signup> {
             ),
 
             Container(
+              child:
+
+              DropdownButton(
+                hint: Text(
+                    'Please choose a location'), // Not necessary for Option 1
+                value: SelectCountry,
+                onChanged: (newValue) {
+                  setState(() {
+                    SelectCountry = newValue.toString();
+                  });
+                },
+                items: _country.map((_country) {
+                  return DropdownMenuItem(
+                    child: new Text(_country),
+                    value: _country,
+                  );
+                }).toList(),
+              ),
+
+              /*DropdownButton(
+                hint: Text('Please Select your contry'),
+                value: SelectCountry,
+                onChanged: (newValue){
+                  setState(() {
+                    SelectCountry = newValue.toString();
+                  });
+                },
+                items: _country.map(country){
+                  return DropdownMenuItem(
+                  child: new Text(country),
+              value : country
+                  );
+              },
+              ),*/
+
+            ),
+
+            Container(
               height: 50,
               width: 200,
               decoration: BoxDecoration(
@@ -168,10 +209,10 @@ class _signupState extends State<signup> {
                   color: Color(0xFFF10909)),
               child: TextButton(
                 onPressed: () {
-                  /*Fluttertoast.showToast(
-                        msg: userController.text +'\n'+ PassController.text, toastLength: Toast.LENGTH_LONG,gravity: ToastGravity.SNACKBAR);*/
+                  Fluttertoast.showToast(
+                        msg: SelectCountry.toString(), toastLength: Toast.LENGTH_LONG,gravity: ToastGravity.SNACKBAR);
 
-                  gender();
+                 // gender();
                     /*Fluttertoast.showToast(
                         msg: _valueradio.toString(), toastLength: Toast.LENGTH_LONG,gravity: ToastGravity.SNACKBAR);
 */
