@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:ict_flutter_development_batch4/Auth/signup.dart';
 import 'package:ict_flutter_development_batch4/FirstPage.dart';
 
+import 'profile.dart';
+
 class signIn extends StatelessWidget {
 
   TextEditingController userController = TextEditingController();
@@ -59,7 +61,11 @@ class signIn extends StatelessWidget {
               Container(
                 alignment: Alignment.centerRight,
                 child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => profile()));
+
+                    },
                     child: Text('''Forgot Password''',
                         style: GoogleFonts.rubik(
                             textStyle: TextStyle(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ict_flutter_development_batch4/Auth/signIn.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class signup extends StatefulWidget {
   const signup({Key? key}) : super(key: key);
@@ -13,10 +15,18 @@ class _signupState extends State<signup> {
   int _valueradio = 0;
   DateTime? _dateTime;
 
-  List<String> _country = ['Arob Amirat','Bangladesh','canada', 'Barmuda','Dubai'];
+  List<String> _country = [
+    'Arob Amirat',
+    'Bangladesh',
+    'canada',
+    'Barmuda',
+    'Dubai'
+  ];
   String? SelectCountry;
 
 
+  TextEditingController userController = TextEditingController();
+  TextEditingController PassController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +40,7 @@ class _signupState extends State<signup> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextField(
-                      //controller: userController,
+                      controller: userController,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'First name',
@@ -42,7 +52,7 @@ class _signupState extends State<signup> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextField(
-                      //controller: userController,
+                      controller: PassController,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'Last name',
@@ -59,7 +69,7 @@ class _signupState extends State<signup> {
                 decoration: BoxDecoration(
                     border: Border.all(width: 1, color: Color(0xFF8F8989))),
                 child:
-                /*Row(
+                    /*Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
@@ -84,7 +94,7 @@ class _signupState extends State<signup> {
                   ],
                 ),*/
 
-                Row(
+                    Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
@@ -105,28 +115,26 @@ class _signupState extends State<signup> {
                               child: _dateTime == null
                                   ? Text('Date : DD-MM-YYYY')
                                   : Text(
-                                  'Date : ${_dateTime!.day}-${_dateTime!.month}-${_dateTime!.year}'))),
+                                      'Date : ${_dateTime!.day}-${_dateTime!.month}-${_dateTime!.year}'))),
                     ),
                   ],
                 ),
               ),
             ),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Row(
                   children: [
                     Radio(
-                      activeColor: Colors.pink,
+                        activeColor: Colors.pink,
                         value: 1,
                         groupValue: _valueradio,
-                        onChanged: (value){
+                        onChanged: (value) {
                           setState(() {
                             _valueradio = value as int;
                           });
-                        }
-                    ),
+                        }),
                     Text('Male')
                   ],
                 ),
@@ -136,12 +144,11 @@ class _signupState extends State<signup> {
                         activeColor: Colors.pink,
                         value: 2,
                         groupValue: _valueradio,
-                        onChanged: (value){
+                        onChanged: (value) {
                           setState(() {
                             _valueradio = value as int;
                           });
-                        }
-                    ),
+                        }),
                     Text('FeMale')
                   ],
                 ),
@@ -151,22 +158,18 @@ class _signupState extends State<signup> {
                         activeColor: Colors.pink,
                         value: 3,
                         groupValue: _valueradio,
-                        onChanged: (value){
+                        onChanged: (value) {
                           setState(() {
                             _valueradio = value as int;
                           });
-                        }
-                    ),
+                        }),
                     Text('Other')
                   ],
                 )
               ],
             ),
-
             Container(
-              child:
-
-              DropdownButton(
+              child: DropdownButton(
                 hint: Text(
                     'Please choose a location'), // Not necessary for Option 1
                 value: SelectCountry,
@@ -198,9 +201,7 @@ class _signupState extends State<signup> {
                   );
               },
               ),*/
-
             ),
-
             Container(
               height: 50,
               width: 200,
@@ -209,14 +210,18 @@ class _signupState extends State<signup> {
                   color: Color(0xFFF10909)),
               child: TextButton(
                 onPressed: () {
+                  setShardPref();
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => signIn()));
                   Fluttertoast.showToast(
-                        msg: SelectCountry.toString(), toastLength: Toast.LENGTH_LONG,gravity: ToastGravity.SNACKBAR);
+                      msg: SelectCountry.toString(),
+                      toastLength: Toast.LENGTH_LONG,
+                      gravity: ToastGravity.SNACKBAR);
 
-                 // gender();
-                    /*Fluttertoast.showToast(
+                  // gender();
+                  /*Fluttertoast.showToast(
                         msg: _valueradio.toString(), toastLength: Toast.LENGTH_LONG,gravity: ToastGravity.SNACKBAR);
 */
-
                 },
                 child: Text('Submit',
                     style: GoogleFonts.rubik(
@@ -227,36 +232,40 @@ class _signupState extends State<signup> {
                             fontSize: 24))),
               ),
             ),
-
           ],
         ),
       ),
     );
   }
 
-  getDate() async{
+  getDate() async {
     DateTime? date = await showDatePicker(
         context: context,
         initialDate: DateTime(DateTime.now().year),
-        firstDate: DateTime(DateTime.now().year-20),
-        lastDate: DateTime(DateTime.now().year+2)
-    );
+        firstDate: DateTime(DateTime.now().year - 20),
+        lastDate: DateTime(DateTime.now().year + 2));
     setState(() {
       _dateTime = date!;
     });
   }
 
-  gender(){
-    if(_valueradio==1){
-      Fluttertoast.showToast(msg: 'Male',toastLength: Toast.LENGTH_LONG);
-    }else if(_valueradio==2){
-      Fluttertoast.showToast(msg: 'FeMale',toastLength: Toast.LENGTH_LONG);
-    }else if(_valueradio==3){
-      Fluttertoast.showToast(msg: 'other',toastLength: Toast.LENGTH_LONG);
-    }else{
-      Fluttertoast.showToast(msg: 'Please Select your gender',toastLength: Toast.LENGTH_LONG);
-
+  gender() {
+    if (_valueradio == 1) {
+      Fluttertoast.showToast(msg: 'Male', toastLength: Toast.LENGTH_LONG);
+    } else if (_valueradio == 2) {
+      Fluttertoast.showToast(msg: 'FeMale', toastLength: Toast.LENGTH_LONG);
+    } else if (_valueradio == 3) {
+      Fluttertoast.showToast(msg: 'other', toastLength: Toast.LENGTH_LONG);
+    } else {
+      Fluttertoast.showToast(
+          msg: 'Please Select your gender', toastLength: Toast.LENGTH_LONG);
     }
   }
 
+  setShardPref() async {
+    final pref = await SharedPreferences.getInstance();
+
+    pref.setString('user', userController.text);
+    pref.setString('pass', PassController.text);
+  }
 }
